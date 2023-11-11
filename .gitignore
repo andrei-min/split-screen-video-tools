@@ -1,0 +1,5 @@
+#ignore all files in top/bottom video/clips folders
+top_videos/
+top_clips/
+bottom_videos/
+bottom_clips/

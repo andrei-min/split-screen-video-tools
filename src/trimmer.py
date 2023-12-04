@@ -24,10 +24,14 @@ def trimmer():
     #trim the video
     print("[Trimmer] " + "Trimming video...")
     print("[Trimmer] " + "Expect heavy resource use")
-    ffmpeg.input(folder + "/" + videoFilename, ss=start, to=end).output(folder + "/" + videoFilename[:-4] + "_trimmed.mp4", loglevel = "quiet").run()
 
+    #get the extension of videoFilename
+    extension = os.path.splitext(videoFilename)[1]
+
+    #trim the video
+    ffmpeg.input(folder + "/" + videoFilename, ss=start, to=end).output(folder + "/" + videoFilename[:-len(extension)] + "_trimmed" + extension, loglevel="quiet").run()
     print("[Trimmer] " + "Video trimmed successfully")
-    print("[Trimmer] " + "Output file: " + videoFilename + "_trimmed.mp4 in " + folder)
+    print("[Trimmer] " + "Output file: " + videoFilename[:-len(extension)] + "_trimmed" + extension + " in " + folder)
 
 if __name__ == "__main__":
     trimmer()

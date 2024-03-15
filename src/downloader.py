@@ -57,5 +57,5 @@ def youTubeDownload():
     #download finished
     print("[Downloader] " + "YouTube stream has been downloaded.")
     
-#call download function
-youTubeDownload()
+if __name__ == "__main__":
+    youTubeDownload()
